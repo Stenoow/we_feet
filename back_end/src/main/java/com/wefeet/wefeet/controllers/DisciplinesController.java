@@ -2,6 +2,7 @@ package com.wefeet.wefeet.controllers;
 
 import com.wefeet.wefeet.entities.Discipline;
 import com.wefeet.wefeet.services.DisciplinesService;
+import com.wefeet.wefeet.utils.ApiResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,19 +28,22 @@ public class DisciplinesController {
     }
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> create(@Valid @RequestBody Discipline discipline) {
+    public ResponseEntity<ApiResponse> create(@Valid @RequestBody Discipline discipline) {
         this.disciplinesService.create(discipline);
-        return new ResponseEntity<>("Discipline is create with success", HttpStatus.CREATED);
+        ApiResponse response = new ApiResponse("Discipline is create with success", HttpStatus.CREATED.value());
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @DeleteMapping(path =  "{id}")
-    public ResponseEntity<String> delete(@PathVariable int id) {
+    public ResponseEntity<ApiResponse> delete(@PathVariable int id) {
         boolean exists = this.disciplinesService.existsById(id);
         if (!exists) {
-            return new ResponseEntity<>("Discipline with ID " + id + " not found", HttpStatus.NOT_FOUND);
+            ApiResponse response = new ApiResponse("Discipline with ID " + id + " not found", HttpStatus.NOT_FOUND.value());
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
 
         this.disciplinesService.delete(id);
-        return new ResponseEntity<>("Discipline is deleted with success", HttpStatus.ACCEPTED);
+        ApiResponse response = new ApiResponse("Discipline is deleted with success", HttpStatus.ACCEPTED.value());
+        return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 }

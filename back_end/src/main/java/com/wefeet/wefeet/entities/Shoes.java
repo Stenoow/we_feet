@@ -37,6 +37,18 @@ public class Shoes  {
         this.link = "";
     }
 
+    public Shoes(String name, TypeSex typeSex, int price, int minSize, int maxSize, String link, Discipline discipline, Trademark trademark, SurfaceArea surfacearea) {
+        this.name = name;
+        this.sex = typeSex;
+        this.price = price;
+        this.minSize = minSize;
+        this.maxSize = maxSize;
+        this.link = link;
+        this.discipline = discipline;
+        this.trademark = trademark;
+        this.surfacearea = surfacearea;
+    }
+
     public int getId() {
         return id;
     }

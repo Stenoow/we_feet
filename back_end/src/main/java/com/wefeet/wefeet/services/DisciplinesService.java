@@ -5,6 +5,7 @@ import com.wefeet.wefeet.repositories.DisciplinesRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DisciplinesService {
@@ -25,6 +26,10 @@ public class DisciplinesService {
 
     public boolean existsById(int id) {
         return disciplinesRepository.existsById(id);
+    }
+
+    public Optional<Discipline> findById(int id) {
+        return disciplinesRepository.findById(id);
     }
 
     public void delete(int id) {
