@@ -1,0 +1,11 @@
+<form (ngSubmit)="onSubmit()">
+  <label for="discipline">Type de discipline :</label>
+  <select id="discipline" [(ngModel)]="step3Data.disciplineId" name="discipline" required>
+    <option value="0">Peu importe</option>
+    @for (discipline of disciplines; track discipline.id) {
+      <option value="{{ discipline.id }}">{{ discipline.name }}</option>
+    }
+  </select>
+
+  <button type="submit">Suivant</button>
+</form>

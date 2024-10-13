@@ -1,0 +1,11 @@
+<form (ngSubmit)="onSubmit()">
+  <label for="trademark">Marque de chaussure :</label>
+  <select id="trademark" [(ngModel)]="step6Data.trademarkId" name="trademark" required>
+    <option value="0">Peu importe</option>
+    @for (trademark of tradeMarks; track trademark.id) {
+      <option value="{{ trademark.id }}">{{ trademark.name }}</option>
+    }
+  </select>
+
+  <button type="submit">Suivant</button>
+</form>

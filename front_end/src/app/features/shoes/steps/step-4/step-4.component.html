@@ -1,0 +1,11 @@
+<form (ngSubmit)="onSubmit()">
+  <label for="surfaceAreaId">Surface d'utilisation :</label>
+  <select id="surfaceAreaId" [(ngModel)]="step4Data.surfaceAreaId" name="surfaceAreaId" required>
+    <option value="0">Peu importe</option>
+    @for (surfaceArea of surfaceAreas; track surfaceArea.id) {
+      <option value="{{ surfaceArea.id }}">{{ surfaceArea.name }}</option>
+    }
+  </select>
+
+  <button type="submit">Suivant</button>
+</form>

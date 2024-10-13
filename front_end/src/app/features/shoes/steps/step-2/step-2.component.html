@@ -1,0 +1,6 @@
+<form (ngSubmit)="onSubmit()">
+  <label for="size">Pointure :</label>
+  <input id="size" [(ngModel)]="step2Data.size" name="size" type="number" min="30" max="60" placeholder="Pointure de chaussure européenne" required />
+
+  <button type="submit">Suivant</button>
+</form>

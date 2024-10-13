@@ -1,0 +1,10 @@
+<form (ngSubmit)="onSubmit()">
+  <label for="sex">Nom :</label>
+  <select id="sex" [(ngModel)]="step1Data.sex" name="sex" required>
+    <option value="FEMALE">Femme</option>
+    <option value="MALE">Homme</option>
+    <option value="NONE">Ne souhaite pas répondre</option>
+  </select>
+
+  <button type="submit">Suivant</button>
+</form>
