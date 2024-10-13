@@ -1,7 +1,10 @@
 package com.wefeet.wefeet.controllers;
 
 import com.wefeet.wefeet.entities.Discipline;
+import com.wefeet.wefeet.entities.SurfaceArea;
+import com.wefeet.wefeet.exceptions.ResourceNotFoundException;
 import com.wefeet.wefeet.services.DisciplinesService;
+import com.wefeet.wefeet.services.SurfaceAreaService;
 import com.wefeet.wefeet.utils.ApiResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -17,9 +20,11 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class DisciplinesController {
 
     private DisciplinesService disciplinesService;
+    private SurfaceAreaService surfaceAreaService;
 
-    public DisciplinesController(DisciplinesService disciplinesService) {
+    public DisciplinesController(DisciplinesService disciplinesService, SurfaceAreaService surfaceAreaService) {
         this.disciplinesService = disciplinesService;
+        this.surfaceAreaService = surfaceAreaService;
     }
 
     @GetMapping()
@@ -32,6 +37,27 @@ public class DisciplinesController {
         this.disciplinesService.create(discipline);
         ApiResponse response = new ApiResponse("Discipline is create with success", HttpStatus.CREATED.value());
         return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/{disciplineId}/surfaceArea/{surfaceAreaId}")
+    public ResponseEntity<ApiResponse> addSurfaceAreaToDiscipline(
+            @PathVariable Integer disciplineId,
+            @PathVariable Integer surfaceAreaId
+    ) {
+        Discipline discipline = disciplinesService.findById(disciplineId)
+                .orElseThrow(() -> new ResourceNotFoundException("Discipline not found"));
+        SurfaceArea surfaceArea = surfaceAreaService.findById(surfaceAreaId)
+                .orElseThrow(() -> new ResourceNotFoundException("SurfaceArea not found"));
+
+        // Lier les entités
+        discipline.getSurfaceAreas().add(surfaceArea);
+        surfaceArea.getDisciplines().add(discipline);
+
+        disciplinesService.create(discipline);
+        surfaceAreaService.create(surfaceArea);
+
+        ApiResponse response = new ApiResponse("Discipline is create with success", HttpStatus.ACCEPTED.value());
+        return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping(path =  "{id}")

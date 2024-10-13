@@ -1,9 +1,8 @@
 package com.wefeet.wefeet.services;
 
+import com.wefeet.wefeet.entities.Discipline;
 import com.wefeet.wefeet.entities.SurfaceArea;
-import com.wefeet.wefeet.entities.Trademark;
 import com.wefeet.wefeet.repositories.SurfaceAreaRepository;
-import com.wefeet.wefeet.repositories.TrademarksRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,8 +17,11 @@ public class SurfaceAreaService {
         this.surfaceAreaRepository = surfaceAreaRepository;
     }
 
-    public List<SurfaceArea> getAllTrademarks() {
-        return surfaceAreaRepository.findAll();
+    public List<SurfaceArea> getAllTrademarks(Discipline discipline) {
+        if (discipline == null) {
+            return surfaceAreaRepository.findAll();
+        }
+        return surfaceAreaRepository.findByDisciplines(discipline);
     }
 
     public void create(SurfaceArea surfaceArea) {
