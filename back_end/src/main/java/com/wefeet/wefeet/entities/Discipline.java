@@ -1,5 +1,7 @@
 package com.wefeet.wefeet.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
@@ -8,6 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Discipline")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Discipline {
 
     @Id

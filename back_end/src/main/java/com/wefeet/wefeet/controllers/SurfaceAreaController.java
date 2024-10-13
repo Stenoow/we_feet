@@ -62,7 +62,7 @@ public class SurfaceAreaController {
         surfaceAreaService.create(surfaceArea);
         disciplinesService.create(discipline);
 
-        ApiResponse response = new ApiResponse("SurfaceArea is create with success", HttpStatus.ACCEPTED.value());
+        ApiResponse response = new ApiResponse("SurfaceArea with ID " + surfaceAreaId + " and the Discipline with ID " + disciplineId + " relation created with success", HttpStatus.ACCEPTED.value());
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 
