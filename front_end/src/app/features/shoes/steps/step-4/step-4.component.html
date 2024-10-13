@@ -1,11 +1,23 @@
-<form (ngSubmit)="onSubmit()">
-  <label for="surfaceAreaId">Surface d'utilisation :</label>
-  <select id="surfaceAreaId" [(ngModel)]="step4Data.surfaceAreaId" name="surfaceAreaId" required>
-    <option value="0">Peu importe</option>
-    @for (surfaceArea of surfaceAreas; track surfaceArea.id) {
-      <option value="{{ surfaceArea.id }}">{{ surfaceArea.name }}</option>
-    }
-  </select>
+<div class="step-question">
+    <h1>Question 4 - 6</h1>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form">
+            <div class="first-part">
+                <h2>Type de terrain</h2>
+                <p>Sur quel terrain pratiquez-vous votre pratique sportive ?</p>
+            </div>
 
-  <button type="submit">Suivant</button>
-</form>
+            <div class="second-part">
+                <label for="surfaceAreaId">Type de terrain :</label>
+                <select id="surfaceAreaId" [(ngModel)]="step4Data.surfaceAreaId" name="surfaceAreaId" required>
+                    <option value="0">Peu importe</option>
+                    @for (surfaceArea of surfaceAreas; track surfaceArea.id) {
+                        <option value="{{ surfaceArea.id }}">{{ surfaceArea.name }}</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="button">Suivant</button>
+    </form>
+</div>

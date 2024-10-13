@@ -7,6 +7,9 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
+
+  --button-color: #fd4f63;
+  --white-color: #ffffff;
 }
 
 .body {
@@ -33,9 +36,60 @@ footer {
 .button {
   text-decoration: none;
   display: inline-block;
-  background-color: #fd4f63;
-  color: #ffffff;
+  background-color: var(--button-color);
+  color: var(--white-color);
   margin: 3em 0;
   padding: 0.7em 3em;
   border-radius: 2em;
+  border: 0;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--button-color);
+}
+
+.button:active {
+  background-color: #b33947;
+}
+
+.step-question h1 {
+  background-color: var(--button-color);
+  color: var(--white-color);
+  border-radius: 2em;
+  padding: 0.5em 1em;
+  margin-bottom: 2em;
+}
+
+.step-question h2 {
+  color: #fd4f63;
+}
+
+.step-question .form {
+  display: flex;
+}
+
+.step-question .form .first-part {
+  width: 50%;
+  padding-right: 3em;
+}
+
+.step-question .form .second-part {
+  width: 50%;
+}
+
+.step-question .form .second-part label {
+  display: block;
+  margin: 1.5em 0;
+}
+
+.step-question .form .second-part input, .step-question .form .second-part select {
+  width: 100%;
+  padding: 1em;
+  border-radius: 2em;
+  background-color: #9a9898;
+  color: var(--white-color);
+  font-size: 1em;
+  border: none;
+  outline: none;
 }

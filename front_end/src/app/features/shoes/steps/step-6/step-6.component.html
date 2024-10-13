@@ -1,11 +1,23 @@
-<form (ngSubmit)="onSubmit()">
-  <label for="trademark">Marque de chaussure :</label>
-  <select id="trademark" [(ngModel)]="step6Data.trademarkId" name="trademark" required>
-    <option value="0">Peu importe</option>
-    @for (trademark of tradeMarks; track trademark.id) {
-      <option value="{{ trademark.id }}">{{ trademark.name }}</option>
-    }
-  </select>
+<div class="step-question">
+  <h1>Question 6 - 6</h1>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form">
+      <div class="first-part">
+        <h2>La marque</h2>
+        <p>Seriez-vous intéressé par des chaussures d'une marque spécifique ?</p>
+      </div>
 
-  <button type="submit">Suivant</button>
-</form>
+      <div class="second-part">
+        <label for="trademark">Marque de chaussure :</label>
+        <select id="trademark" [(ngModel)]="step6Data.trademarkId" name="trademark" required>
+          <option value="0">Peu importe</option>
+          @for (trademark of tradeMarks; track trademark.id) {
+            <option value="{{ trademark.id }}">{{ trademark.name }}</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" class="button">Afficher les chaussures</button>
+  </form>
+</div>

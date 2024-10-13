@@ -1,11 +1,23 @@
-<form (ngSubmit)="onSubmit()">
-  <label for="price">Fourchette de prix :</label>
-  <select id="price" [(ngModel)]="step5Data.price" name="price" required>
-    <option value="0">Moins de 80€</option>
-    <option value="1">De 80 à 150€</option>
-    <option value="2">De 150€ à 200€</option>
-    <option value="3">Plus de 200€ (budget illimité)</option>
-  </select>
+<div class="step-question">
+  <h1>Question 5 - 6</h1>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form">
+      <div class="first-part">
+        <h2>Le budget</h2>
+        <p>Quel budget êtes-vous prêt à allouer à votre prochaine paire de chaussures de sport ?</p>
+      </div>
 
-  <button type="submit">Suivant</button>
-</form>
+      <div class="second-part">
+        <label for="price">Fourchette de prix :</label>
+        <select id="price" [(ngModel)]="step5Data.price" name="price" required>
+          <option value="0">Moins de 80€</option>
+          <option value="1">De 80 à 150€</option>
+          <option value="2">De 150€ à 200€</option>
+          <option value="3">Plus de 200€ (budget illimité)</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" class="button">Suivant</button>
+  </form>
+</div>

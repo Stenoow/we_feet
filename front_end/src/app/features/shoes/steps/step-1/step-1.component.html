@@ -1,10 +1,22 @@
-<form (ngSubmit)="onSubmit()">
-  <label for="sex">Nom :</label>
-  <select id="sex" [(ngModel)]="step1Data.sex" name="sex" required>
-    <option value="FEMALE">Femme</option>
-    <option value="MALE">Homme</option>
-    <option value="NONE">Ne souhaite pas répondre</option>
-  </select>
+<div class="step-question">
+  <h1>Question 1 - 6</h1>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form">
+      <div class="first-part">
+        <h2>Le genre</h2>
+        <p>Quel est votre genre ? Cette question est utile pour vous proposer des chaussures adaptées à votre morphologie des pieds.</p>
+      </div>
 
-  <button type="submit">Suivant</button>
-</form>
+      <div class="second-part">
+        <label for="sex">Genre :</label>
+        <select id="sex" [(ngModel)]="step1Data.sex" name="sex" required>
+          <option value="FEMALE">Femme</option>
+          <option value="MALE">Homme</option>
+          <option value="NONE">Ne souhaite pas répondre</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" class="button">Suivant</button>
+  </form>
+</div>

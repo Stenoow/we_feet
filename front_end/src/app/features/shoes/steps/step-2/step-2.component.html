@@ -1,6 +1,18 @@
-<form (ngSubmit)="onSubmit()">
-  <label for="size">Pointure :</label>
-  <input id="size" [(ngModel)]="step2Data.size" name="size" type="number" min="30" max="60" placeholder="Pointure de chaussure européenne" required />
+<div class="step-question">
+  <h1>Question 2 - 6</h1>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form">
+      <div class="first-part">
+        <h2>La pointure</h2>
+        <p>Quelle est votre pointure ?</p>
+      </div>
 
-  <button type="submit">Suivant</button>
-</form>
+      <div class="second-part">
+        <label for="size">Pointure :</label>
+        <input id="size" [(ngModel)]="step2Data.size" name="size" type="number" min="30" max="60" placeholder="Pointure de chaussure européenne" required />
+      </div>
+    </div>
+
+    <button type="submit" class="button">Suivant</button>
+  </form>
+</div>
