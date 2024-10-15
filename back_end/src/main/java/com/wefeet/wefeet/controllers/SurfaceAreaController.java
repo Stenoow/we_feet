@@ -30,7 +30,7 @@ public class SurfaceAreaController {
     public @ResponseBody List<SurfaceArea> getShoes(@RequestParam(required = false) Integer disciplineId) {
         Discipline discipline = null;
 
-        if (disciplineId != null) {
+        if (disciplineId != null && disciplineId != 0) {
             discipline = this.disciplinesService.findById(disciplineId)
                     .orElseThrow(() -> new ResourceNotFoundException("Discipline not found"));
         }
