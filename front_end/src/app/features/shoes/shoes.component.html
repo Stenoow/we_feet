@@ -1,1 +1,31 @@
-<p>shoes works!</p>
+@if (shoes.length > 0) {
+  <div class="step-question">
+    <h1>Résultats</h1>
+    <h3 class="title">{{shoes[0].name}}</h3>
+    <article class="result">
+      <div>
+        <h3>Lien de la paire</h3>
+        <p>Le lien de la paire : <a [href]="shoes[0].link" target="_blank">{{shoes[0].name}}</a> de chez {{ shoes[0].trademark.name}}.</p>
+      </div>
+      <div>
+        <h3>Prix</h3>
+        <p>Le prix de cette paire est de {{ shoes[0].price }}€.</p>
+      </div>
+      <div>
+        <h3>Taille</h3>
+        <p>La paire est disponible du <b>{{ shoes[0].minSize }}</b> au <b>{{ shoes[0].maxSize }}</b>.</p>
+      </div>
+    </article>
+    <h2>Les autres paires similaires à vos demandes :</h2>
+    <section>
+        <article *ngFor="let shoe of shoes | slice:1">
+          <h3>Voir la <a [href]="shoe.link" target="_blank">{{ shoe.name }}</a></h3>
+        </article>
+    </section>
+  </div>
+} @else {
+  <div class="step-question">
+    <h1>Aucun résultat pour votre recherche</h1>
+    <a class="button" href="/step1">Réessayer avec d'autres paramètres ?</a>
+  </div>
+}

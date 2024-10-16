@@ -9,7 +9,10 @@
 
       <div class="second-part">
         <label for="size">Pointure :</label>
-        <input id="size" [(ngModel)]="step2Data.size" name="size" type="number" min="30" max="60" placeholder="Pointure de chaussure européenne" required />
+        <input id="size" [(ngModel)]="step2Data.size" name="size" type="number" min="30" max="60" placeholder="Pointure de chaussure européenne" [ngClass]="{'error' : errors.size.length > 0}" required />
+        @if (errors.size.length > 0) {
+          <p class="error-text">{{errors.size}}</p>
+        }
       </div>
     </div>
 

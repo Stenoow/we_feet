@@ -5,6 +5,8 @@ import {Discipline} from '../../../core/enums/Discipline';
 import {SurfaceArea} from '../../../core/enums/SurfaceArea';
 import {Trademark} from '../../../core/enums/Trademark';
 import {environment} from '../../../../environments/environment';
+import {Shoes} from '../../../core/enums/Shoes';
+import {TypeSex} from '../../../core/enums/TypeSex';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +26,11 @@ export class ApiService {
 
   getTrademarks(): Observable<Trademark[]> {
     return this.http.get<Trademark[]>(this.apiUrl + "/trademarks");
+  }
+
+  getShoes(sex: TypeSex, price: number, size: number, disciplineId: number, trademarkId: number, surfaceareaId: number): Observable<Shoes[]> {
+    let parameters = `sex=${sex}&price=${price}&size=${size}&disciplineId=${disciplineId}&trademarkId=${trademarkId}&surfaceareaId=${surfaceareaId}`;
+
+    return this.http.get<Shoes[]>(this.apiUrl + "/shoes/filter?" + parameters);
   }
 }

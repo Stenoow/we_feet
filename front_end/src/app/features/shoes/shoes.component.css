@@ -1,0 +1,45 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  text-align: center;
+  color: var(--button-color);
+  font-size: 2em;
+  text-decoration: underline;
+}
+
+.result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.result div {
+  width: 30%;
+}
+
+.result h3 {
+  color: var(--white-color);
+  background-color: var(--button-color);
+  padding: 0.5em 1em;
+  border-radius: 2em;
+  text-align: center;
+}
+.result p {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+article a {
+  color: var(--button-color)
+}
+
+@media screen and (max-width: 650px) {
+  .result div {
+    width: 100%;
+  }
+}

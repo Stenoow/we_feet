@@ -37,6 +37,41 @@ public class ShoesController {
         return this.shoesService.getAllShoes();
     }
 
+    @GetMapping(path = "/filter")
+    public ResponseEntity<List<Shoes>> filterShoes(
+            @RequestParam() TypeSex sex,
+            @RequestParam() Integer price,
+            @RequestParam() Integer size,
+            @RequestParam() Long disciplineId,
+            @RequestParam() Long surfaceareaId,
+            @RequestParam(required = false) Long trademarkId) {
+
+        double minPrice = 0.0;
+        double maxPrice = switch (price) {
+            case 0 -> {
+                minPrice = 0.0;
+                yield 80.0;
+            }
+            case 1 -> {
+                minPrice = 80.0;
+                yield 150.0;
+            }
+            case 2 -> {
+                minPrice = 150.0;
+                yield 200.0;
+            }
+            case 3 -> {
+                minPrice = 200.0;
+                yield 1000.0;
+            }
+            default -> 0.0;
+        };
+
+        List<Shoes> filteredShoes = shoesService.filterShoes(sex, minPrice, maxPrice, size, disciplineId, trademarkId, surfaceareaId);
+
+        return ResponseEntity.ok(filteredShoes);
+    }
+
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<ApiResponse> create(@RequestBody ShoesDTO shoesDTO) {
 

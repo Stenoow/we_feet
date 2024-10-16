@@ -32,7 +32,6 @@ export class Step6Component {
   }
 
   fetchTrademarks(): void {
-    const disciplineId = this.formDataService.getAllData().step3.disciplineId;
     this.apiService.getTrademarks().subscribe({next: (response) => {
         this.tradeMarks = response;
       },

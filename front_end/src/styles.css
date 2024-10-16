@@ -9,6 +9,7 @@ body {
   font-family: "Roboto", sans-serif;
 
   --button-color: #fd4f63;
+  --error: #d62237;
   --white-color: #ffffff;
 }
 
@@ -43,6 +44,7 @@ footer {
   border-radius: 2em;
   border: 0;
   cursor: pointer;
+  text-align: center;
 }
 
 .button:hover {
@@ -92,4 +94,40 @@ footer {
   font-size: 1em;
   border: none;
   outline: none;
+}
+
+.step-question .form .second-part .error {
+  border-color: var(--error);
+}
+
+.step-question .form .second-part .error-text {
+  color: var(--error);
+  border: 1px solid var(--error);
+  padding: 0.5em;
+  border-radius: 1em;
+}
+
+@media screen and (max-width: 650px) {
+  .step-question h1 {
+    margin-bottom: 1em;
+  }
+
+  .step-question .form {
+    flex-direction: column;
+  }
+
+  .step-question .form .first-part {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .step-question .form .second-part {
+    width: 100%;
+  }
+
+  .button {
+    font-size: 1em;
+    width: 100%;
+    padding: 0.7em 0;
+  }
 }
