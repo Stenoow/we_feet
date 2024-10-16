@@ -20,7 +20,7 @@ public class Shoes  {
     private int minSize;
     @Column(nullable = false)
     private int maxSize;
-    @Column
+    @Column(length = 500)
     private String link;
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "discipline_id", nullable = false)
