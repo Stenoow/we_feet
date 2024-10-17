@@ -1,5 +1,11 @@
 ### Project of We Feet
 
+## Demo
+
+The project is on [stenow.fr](https://stenow.fr)
+
+## Launch the project on production
+
 Lancer le build front en production :
 sudo ng build --configuration production
 
