@@ -1,12 +1,15 @@
 package com.wefeet.wefeet.services;
 
 import com.wefeet.wefeet.entities.Discipline;
+import com.wefeet.wefeet.entities.DisciplineDTO;
 import com.wefeet.wefeet.entities.SurfaceArea;
+import com.wefeet.wefeet.entities.SurfaceAreaDTO;
 import com.wefeet.wefeet.repositories.SurfaceAreaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class SurfaceAreaService {
@@ -17,11 +20,12 @@ public class SurfaceAreaService {
         this.surfaceAreaRepository = surfaceAreaRepository;
     }
 
-    public List<SurfaceArea> getAllTrademarks(Discipline discipline) {
+    public List<SurfaceAreaDTO> getAllTrademarks(Discipline discipline) {
+        List<SurfaceArea> surfaceAreas = surfaceAreaRepository.findAll();
         if (discipline == null) {
-            return surfaceAreaRepository.findAll();
+            surfaceAreas = surfaceAreaRepository.findByDisciplines(discipline);
         }
-        return surfaceAreaRepository.findByDisciplines(discipline);
+        return surfaceAreas.stream().map(surface -> new SurfaceAreaDTO(surface.getId(), surface.getName())).collect(Collectors.toList());
     }
 
     public void create(SurfaceArea surfaceArea) {
