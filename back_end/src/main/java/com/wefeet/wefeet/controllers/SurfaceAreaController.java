@@ -27,7 +27,7 @@ public class SurfaceAreaController {
     }
 
     @GetMapping()
-    public @ResponseBody List<SurfaceArea> getShoes(@RequestParam(required = false) Integer disciplineId) {
+    public @ResponseBody List<SurfaceAreaDTO> getShoes(@RequestParam(required = false) Integer disciplineId) {
         Discipline discipline = null;
 
         if (disciplineId != null && disciplineId != 0) {

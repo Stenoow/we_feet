@@ -1,11 +1,13 @@
 package com.wefeet.wefeet.services;
 
 import com.wefeet.wefeet.entities.Discipline;
+import com.wefeet.wefeet.entities.DisciplineDTO;
 import com.wefeet.wefeet.repositories.DisciplinesRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class DisciplinesService {
@@ -16,8 +18,9 @@ public class DisciplinesService {
         this.disciplinesRepository = disciplinesRepository;
     }
 
-    public List<Discipline> getAllDisciplines() {
-        return this.disciplinesRepository.findAll();
+    public List<DisciplineDTO> getAllDisciplines() {
+        List<Discipline> disciplines = disciplinesRepository.findAll();
+        return disciplines.stream().map(d -> new DisciplineDTO(d.getId(), d.getName())).collect(Collectors.toList());
     }
 
     public void create(Discipline discipline) {

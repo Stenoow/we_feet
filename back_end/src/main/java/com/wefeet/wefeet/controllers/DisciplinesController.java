@@ -1,6 +1,7 @@
 package com.wefeet.wefeet.controllers;
 
 import com.wefeet.wefeet.entities.Discipline;
+import com.wefeet.wefeet.entities.DisciplineDTO;
 import com.wefeet.wefeet.entities.SurfaceArea;
 import com.wefeet.wefeet.exceptions.ResourceNotFoundException;
 import com.wefeet.wefeet.services.DisciplinesService;
@@ -28,7 +29,7 @@ public class DisciplinesController {
     }
 
     @GetMapping()
-    public @ResponseBody List<Discipline> getShoes() {
+    public @ResponseBody List<DisciplineDTO> getDisciplines() {
         return this.disciplinesService.getAllDisciplines();
     }
 
