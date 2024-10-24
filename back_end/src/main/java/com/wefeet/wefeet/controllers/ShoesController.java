@@ -38,7 +38,7 @@ public class ShoesController {
     }
 
     @GetMapping(path = "/filter")
-    public ResponseEntity<List<Shoes>> filterShoes(
+    public ResponseEntity<List<ShoesDTO>> filterShoes(
             @RequestParam() TypeSex sex,
             @RequestParam() Integer price,
             @RequestParam() Integer size,
@@ -67,7 +67,7 @@ public class ShoesController {
             default -> 0.0;
         };
 
-        List<Shoes> filteredShoes = shoesService.filterShoes(sex, minPrice, maxPrice, size, disciplineId, trademarkId, surfaceareaId);
+        List<ShoesDTO> filteredShoes = shoesService.filterShoes(sex, minPrice, maxPrice, size, disciplineId, trademarkId, surfaceareaId);
 
         return ResponseEntity.ok(filteredShoes);
     }

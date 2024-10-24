@@ -7,7 +7,7 @@ public class ShoesDTO {
 
     private String name;
     private String sex;
-    private int price;
+    private float price;
     private int minSize;
     private int maxSize;
     private String link;
@@ -15,7 +15,7 @@ public class ShoesDTO {
     private int trademarkId;
     private int surfaceareaId;
 
-    public ShoesDTO(String name, String sex, int price, int minSize, int maxSize, String link, int disciplineId, int trademarkId, int surfaceareaId) {
+    public ShoesDTO(String name, String sex, float price, int minSize, int maxSize, String link, int disciplineId, int trademarkId, int surfaceareaId) {
         this.name = name;
         this.sex = sex;
         this.price = price;
@@ -51,11 +51,11 @@ public class ShoesDTO {
         this.sex = sex;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

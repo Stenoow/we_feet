@@ -37,7 +37,7 @@ public class Shoes  {
         this.link = "";
     }
 
-    public Shoes(String name, TypeSex typeSex, int price, int minSize, int maxSize, String link, Discipline discipline, Trademark trademark, SurfaceArea surfacearea) {
+    public Shoes(String name, TypeSex typeSex, float price, int minSize, int maxSize, String link, Discipline discipline, Trademark trademark, SurfaceArea surfacearea) {
         this.name = name;
         this.sex = typeSex;
         this.price = price;
