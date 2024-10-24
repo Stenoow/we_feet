@@ -21,8 +21,11 @@ public class SurfaceAreaService {
     }
 
     public List<SurfaceAreaDTO> getAllTrademarks(Discipline discipline) {
-        List<SurfaceArea> surfaceAreas = surfaceAreaRepository.findAll();
+        List<SurfaceArea> surfaceAreas;
+
         if (discipline == null) {
+            surfaceAreas = surfaceAreaRepository.findAll();
+        } else {
             surfaceAreas = surfaceAreaRepository.findByDisciplines(discipline);
         }
         return surfaceAreas.stream().map(surface -> new SurfaceAreaDTO(surface.getId(), surface.getName())).collect(Collectors.toList());
