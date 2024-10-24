@@ -20,8 +20,18 @@ public class ShoesService {
         this.shoesRepository = shoesRepository;
     }
 
-    public List<Shoes> getAllShoes() {
-        return this.shoesRepository.findAll();
+    public List<ShoesDTO> getAllShoes() {
+        return this.shoesRepository.findAll().stream().map(d -> new ShoesDTO(
+                d.getName(),
+                d.getSex().name(),
+                d.getPrice(),
+                d.getMinSize(),
+                d.getMaxSize(),
+                d.getLink(),
+                d.getDiscipline().getId(),
+                d.getTrademark().getId(),
+                d.getSurfacearea().getId()
+        )).collect(Collectors.toList());
     }
 
     public List<ShoesDTO> filterShoes(TypeSex sex, Double minPrice, Double maxPrice, Integer size, Long disciplineId, Long trademarkId, Long surfaceareaId) {

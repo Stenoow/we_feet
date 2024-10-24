@@ -33,7 +33,7 @@ public class ShoesController {
     }
 
     @GetMapping()
-    public @ResponseBody List<Shoes> getShoes() {
+    public @ResponseBody List<ShoesDTO> getShoes() {
         return this.shoesService.getAllShoes();
     }
 
