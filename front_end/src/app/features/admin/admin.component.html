@@ -16,13 +16,13 @@
           <option value="MALE">Homme</option>
           <option value="UNISEX">Unisexe</option>
         </select>
-        <label for="price">Fourchette de prix :</label>
+        <label for="price">Prix :</label>
         <input id="price" [(ngModel)]="adminData.price" name="price" type="number" min="0" step="0.01" max="1000" required />
         <label for="minSize">Taille minimum :</label>
         <input id="minSize" [(ngModel)]="adminData.minSize" name="minSize" type="number" min="30" max="60" required />
         <label for="maxSize">Taille maximum :</label>
         <input id="maxSize" [(ngModel)]="adminData.maxSize" name="maxSize" type="number" min="30" max="60" required />
-        <label for="link">Taille maximum :</label>
+        <label for="link">Lien :</label>
         <input id="link" [(ngModel)]="adminData.link" name="link" type="text" required />
         <label for="disciplineId">Discipline :</label>
         <select id="disciplineId" [(ngModel)]="adminData.disciplineId" name="disciplineId" required>
@@ -31,13 +31,13 @@
           }
         </select>
         <label for="surfaceAreaId">Zone d'utilisation :</label>
-        <select id="surfaceAreaId" [(ngModel)]="adminData.surfaceAreaId" name="surfaceAreaId" required>
+        <select id="surfaceAreaId" [(ngModel)]="adminData.surfaceareaId" name="surfaceAreaId" required>
           @for (surfaceArea of surfaceAreas; track surfaceArea.id) {
             <option value="{{ surfaceArea.id }}">{{ surfaceArea.name }}</option>
           }
         </select>
         <label for="tradeMarkId">Marque :</label>
-        <select id="tradeMarkId" [(ngModel)]="adminData.tradeMarkId" name="tradeMarkId" required>
+        <select id="tradeMarkId" [(ngModel)]="adminData.trademarkId" name="tradeMarkId" required>
           @for (trademark of tradeMarks; track trademark.id) {
             <option value="{{ trademark.id }}">{{ trademark.name }}</option>
           }

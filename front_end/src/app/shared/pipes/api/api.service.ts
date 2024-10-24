@@ -36,4 +36,8 @@ export class ApiService {
 
     return this.http.get<Shoes[]>(this.apiUrl + "/shoes/filter?" + parameters);
   }
+
+  createShoes(data : any): Observable<any> {
+    return this.http.post(this.apiUrl + "/shoes", data);
+  }
 }

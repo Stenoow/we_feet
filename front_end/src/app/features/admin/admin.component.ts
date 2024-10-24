@@ -6,6 +6,7 @@ import {ApiService} from '../../shared/pipes/api/api.service';
 import {Discipline} from '../../core/enums/Discipline';
 import {SurfaceArea} from '../../core/enums/SurfaceArea';
 import {Trademark} from '../../core/enums/Trademark';
+import {TypeSex} from '../../core/enums/TypeSex';
 
 @Component({
   selector: 'app-home',
@@ -26,8 +27,8 @@ export class AdminComponent {
     maxSize: 60,
     link: "",
     disciplineId: 0,
-    surfaceAreaId: 0,
-    tradeMarkId: 0,
+    surfaceareaId: 0,
+    trademarkId: 0,
   };
 
   tradeMarks: Trademark[] = [];
@@ -77,5 +78,13 @@ export class AdminComponent {
 
   onSubmit() {
     console.log(this.adminData)
+    this.apiService.createShoes(this.adminData).subscribe({next: (response) => {
+        console.log(response);
+      },
+      error: (error) => {
+        console.error('Erreur lors de la récupération des données', error);
+      }}
+
+    );
   }
 }
