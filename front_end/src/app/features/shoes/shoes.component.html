@@ -5,15 +5,15 @@
     <article class="result">
       <div>
         <h3>Lien de la paire</h3>
-        <p>Le lien de la paire : <a [href]="shoes[0].link" target="_blank">{{shoes[0].name}}</a> de chez {{ shoes[0].trademark.name}}.</p>
+        <p>Le lien de la paire : <a [href]="shoes[0].link" target="_blank">{{shoes[0].name}}</a>.</p>
       </div>
       <div>
         <h3>Prix</h3>
-        <p>Le prix de cette paire est de {{ shoes[0].price }}€.</p>
+        <p>Le prix de cette paire est à {{ shoes[0].price }}€.</p>
       </div>
       <div>
         <h3>Taille</h3>
-        <p>La paire est disponible du <b>{{ shoes[0].minSize }}</b> au <b>{{ shoes[0].maxSize }}</b>.</p>
+        <p>La paire est disponible du <b>{{ shoes[0].minSize }}</b> au <b>{{ shoes[0].maxSize }}</b>. (tailles européennes)</p>
       </div>
     </article>
     <h2>Les autres paires similaires à vos demandes :</h2>

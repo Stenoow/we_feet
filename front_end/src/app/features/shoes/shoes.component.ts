@@ -35,8 +35,9 @@ export class ShoesComponent {
 
   fetchShoes(): void {
     let datas = this.formDataService.getAllData();
-    this.apiService.getShoes(datas.step1.sex, datas.step2.size, datas.step5.price, datas.step3.disciplineId, datas.step6.trademarkId, datas.step4.surfaceAreaId).subscribe({next: (response) => {
+    this.apiService.getShoes(datas.step1.sex, datas.step5.price, datas.step2.size, datas.step3.disciplineId, datas.step6.trademarkId, datas.step4.surfaceAreaId).subscribe({next: (response) => {
         this.shoes = response;
+        console.log(this.shoes)
       },
       error: (error) => {
         console.error('Erreur lors de la récupération des données', error);

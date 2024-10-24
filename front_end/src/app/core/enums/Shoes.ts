@@ -1,7 +1,4 @@
 import {TypeSex} from './TypeSex';
-import {Discipline} from './Discipline';
-import {Trademark} from './Trademark';
-import {SurfaceArea} from './SurfaceArea';
 
 export interface Shoes {
     id: number,
@@ -11,7 +8,7 @@ export interface Shoes {
     minSize: number,
     maxSize: number,
     link: string,
-    discipline: Discipline,
-    trademark: Trademark,
-    surfacearea: SurfaceArea
+    disciplineId: number,
+    trademarkId: number,
+    surfaceareaId: number
 }
