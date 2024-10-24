@@ -8,7 +8,6 @@
       </div>
 
       <div class="second-part">
-        <label for="trademark">Marque de chaussure :</label>
         <select id="trademark" [(ngModel)]="step6Data.trademarkId" name="trademark" required>
           <option value="0">Peu importe</option>
           @for (trademark of tradeMarks; track trademark.id) {

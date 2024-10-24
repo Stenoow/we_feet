@@ -20,7 +20,10 @@ export class ApiService {
     return this.http.get<Discipline[]>(this.apiUrl + "/disciplines");
   }
 
-  getSurfaceAreas(disciplineId: number): Observable<SurfaceArea[]> {
+  getSurfaceAreas(disciplineId: number = 0): Observable<SurfaceArea[]> {
+    if (disciplineId === 0) {
+      return this.http.get<SurfaceArea[]>(this.apiUrl + "/surfacearea");
+    }
     return this.http.get<SurfaceArea[]>(this.apiUrl + "/surfacearea?disciplineId=" + disciplineId);
   }
 

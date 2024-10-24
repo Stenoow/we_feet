@@ -4,11 +4,10 @@
         <div class="form">
             <div class="first-part">
                 <h2>Type de terrain</h2>
-                <p>Sur quel terrain pratiquez-vous votre pratique sportive ?</p>
+                <p>Sur quel type de terrain pratiquez-vous votre activité sportive ?</p>
             </div>
 
             <div class="second-part">
-                <label for="surfaceAreaId">Type de terrain :</label>
                 <select id="surfaceAreaId" [(ngModel)]="step4Data.surfaceAreaId" name="surfaceAreaId" required>
                     <option value="0">Peu importe</option>
                     @for (surfaceArea of surfaceAreas; track surfaceArea.id) {

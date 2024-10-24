@@ -8,6 +8,7 @@ import {Step3Component} from './features/shoes/steps/step-3/step-3.component';
 import {Step4Component} from './features/shoes/steps/step-4/step-4.component';
 import {Step6Component} from './features/shoes/steps/step-6/step-6.component';
 import {Step5Component} from './features/shoes/steps/step-5/step-5.component';
+import {AdminComponent} from './features/admin/admin.component';
 
 
 export const routes: Routes = [
@@ -19,4 +20,5 @@ export const routes: Routes = [
   { path: "step5", component: Step5Component, canActivate: [SearchDataGuard]},
   { path: "step6", component: Step6Component, canActivate: [SearchDataGuard]},
   { path: "results", component: ShoesComponent},
+  { path: "admin", component: AdminComponent},
 ];

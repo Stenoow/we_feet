@@ -69,6 +69,7 @@ footer {
 
 .step-question .form {
   display: flex;
+  align-items: flex-end;
 }
 
 .step-question .form .first-part {

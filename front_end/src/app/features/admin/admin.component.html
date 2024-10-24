@@ -1,0 +1,50 @@
+<div class="step-question">
+  <h1>Ajout d'une paire de chaussures</h1>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form">
+      <div class="first-part">
+        <h2>Le budget</h2>
+        <p>Quel budget êtes-vous prêt à allouer à votre prochaine paire de chaussures de sport ?</p>
+      </div>
+
+      <div class="second-part">
+        <label for="name">Nom de la chaussure :</label>
+        <input id="name" [(ngModel)]="adminData.name" name="name" type="text" required />
+        <label for="sex">Sexe :</label>
+        <select id="sex" [(ngModel)]="adminData.sex" name="sex" required>
+          <option value="FEMALE">Femme</option>
+          <option value="MALE">Homme</option>
+          <option value="UNISEX">Unisexe</option>
+        </select>
+        <label for="price">Fourchette de prix :</label>
+        <input id="price" [(ngModel)]="adminData.price" name="price" type="number" min="0" step="0.01" max="1000" required />
+        <label for="minSize">Taille minimum :</label>
+        <input id="minSize" [(ngModel)]="adminData.minSize" name="minSize" type="number" min="30" max="60" required />
+        <label for="maxSize">Taille maximum :</label>
+        <input id="maxSize" [(ngModel)]="adminData.maxSize" name="maxSize" type="number" min="30" max="60" required />
+        <label for="link">Taille maximum :</label>
+        <input id="link" [(ngModel)]="adminData.link" name="link" type="text" required />
+        <label for="disciplineId">Discipline :</label>
+        <select id="disciplineId" [(ngModel)]="adminData.disciplineId" name="disciplineId" required>
+          @for (discipline of disciplines; track discipline.id) {
+            <option value="{{ discipline.id }}">{{ discipline.name }}</option>
+          }
+        </select>
+        <label for="surfaceAreaId">Zone d'utilisation :</label>
+        <select id="surfaceAreaId" [(ngModel)]="adminData.surfaceAreaId" name="surfaceAreaId" required>
+          @for (surfaceArea of surfaceAreas; track surfaceArea.id) {
+            <option value="{{ surfaceArea.id }}">{{ surfaceArea.name }}</option>
+          }
+        </select>
+        <label for="tradeMarkId">Marque :</label>
+        <select id="tradeMarkId" [(ngModel)]="adminData.tradeMarkId" name="tradeMarkId" required>
+          @for (trademark of tradeMarks; track trademark.id) {
+            <option value="{{ trademark.id }}">{{ trademark.name }}</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" class="button">Suivant</button>
+  </form>
+</div>

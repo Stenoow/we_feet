@@ -8,7 +8,6 @@
             </div>
 
             <div class="second-part">
-                <label for="discipline">Type de discipline :</label>
                 <select id="discipline" [(ngModel)]="step3Data.disciplineId" name="discipline" required>
                     <option value="0">Peu importe</option>
                     @for (discipline of disciplines; track discipline.id) {
