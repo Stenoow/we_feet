@@ -7,13 +7,17 @@ import {Discipline} from '../../core/enums/Discipline';
 import {SurfaceArea} from '../../core/enums/SurfaceArea';
 import {Trademark} from '../../core/enums/Trademark';
 import {TypeSex} from '../../core/enums/TypeSex';
+import {JsonPipe, NgClass, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     RouterLink,
-    FormsModule
+    FormsModule,
+    JsonPipe,
+    NgIf,
+    NgClass
   ],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
@@ -30,6 +34,10 @@ export class AdminComponent {
     surfaceareaId: 0,
     trademarkId: 0,
   };
+
+  public message: any;
+  public errorMessage: string | null = null;
+  public showMessage: boolean = false;
 
   tradeMarks: Trademark[] = [];
   surfaceAreas: SurfaceArea[] = [];
@@ -78,13 +86,26 @@ export class AdminComponent {
 
   onSubmit() {
     console.log(this.adminData)
-    this.apiService.createShoes(this.adminData).subscribe({next: (response) => {
-        console.log(response);
+    this.apiService.createShoes(this.adminData).subscribe({
+      next: (response) => {
+        this.message = response.message;
+        this.displayMessage();
       },
       error: (error) => {
-        console.error('Erreur lors de la récupération des données', error);
+        this.errorMessage = 'Erreur lors de la création de la paire de chaussures';
+        this.displayMessage();
       }}
 
     );
+  }
+
+  displayMessage() {
+    this.showMessage = true;
+    // Après 5 secondes, cache le message et la bannière
+    setTimeout(() => {
+      this.showMessage = false;
+      this.errorMessage = null;
+      this.message = null;
+    }, 5000);
   }
 }

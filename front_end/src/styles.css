@@ -70,6 +70,46 @@ footer {
 .step-question .form {
   display: flex;
   align-items: flex-end;
+  justify-content: center;
+}
+
+.fixed-message {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  width: 50%;
+  background: linear-gradient(0.25turn, #fdb489, #fd0465);
+  border-radius: 3em;
+  color: var(--white-color);
+  text-align: center;
+  padding: 0.5em;
+  box-shadow: 0px 4px 2px -2px gray;
+  z-index: 1000;
+  transform: translateX(-50%);
+}
+
+.fixed-message.show {
+  top: 20px;
+  animation: stay-visible 4.5s ease-in-out forwards;
+}
+
+@keyframes stay-visible {
+   0% {
+     top: -100px;
+   }
+   10% {
+     top: 32px;
+   }
+   90% {
+     top: 32px;
+   }
+   100% {
+     top: -100px;
+   }
+ }
+
+.hidden {
+  display: none;
 }
 
 .step-question .form .first-part {

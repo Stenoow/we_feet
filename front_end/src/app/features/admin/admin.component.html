@@ -1,11 +1,11 @@
+<div *ngIf="message || errorMessage" [ngClass]="{'fixed-message': true, 'show': showMessage, 'error': errorMessage}">
+  <p *ngIf="message">Les données ont été chargées : {{ message | json }}</p>
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>
 <div class="step-question">
   <h1>Ajout d'une paire de chaussures</h1>
   <form (ngSubmit)="onSubmit()">
     <div class="form">
-      <div class="first-part">
-        <h2>Le budget</h2>
-        <p>Quel budget êtes-vous prêt à allouer à votre prochaine paire de chaussures de sport ?</p>
-      </div>
 
       <div class="second-part">
         <label for="name">Nom de la chaussure :</label>
@@ -45,6 +45,6 @@
       </div>
     </div>
 
-    <button type="submit" class="button">Suivant</button>
+    <button type="submit" class="button">Ajouter la paire</button>
   </form>
 </div>
